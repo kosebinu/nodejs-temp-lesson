@@ -1,8 +1,10 @@
-const { createReadStream } = require('fs')
+const EventEmitter = require('node:events');
 
-const stream = createReadStream('./content/big.txt')
+const eventEmitter = new EventEmitter();
 
-stream.on('data', (result) => {
-    console.log(result);
+eventEmitter.on('start', () => {
+    console.log('started Now');
     
 })
+
+eventEmitter.emit('start')
