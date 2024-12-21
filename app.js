@@ -1,10 +1,11 @@
-const EventEmitter = require('node:events');
+const express = require('express');
+const app = express();
 
-const eventEmitter = new EventEmitter();
+app.get('/', (reqq, res) => res.send('Hello World!'));
 
-eventEmitter.on('start', () => {
-    console.log('started Now');
+const PORT = 5000;
+
+app.listen(PORT, () => {
+    console.log(`My first express app - listening on port ${PORT}!`);
     
 })
-
-eventEmitter.emit('start')
